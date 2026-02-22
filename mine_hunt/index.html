@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Find love not Mines..!!!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+
+<style>
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background: #1a191c;
+    color: #fff !important;
+}
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+button{
+    padding: 8px 15px;
+    font-size: 18px;
+    /*background: #61dd97;*/
+    background: #404040;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    margin: 15px;
+    cursor: pointer;
+}
+.grid_cont{
+    width: min-content;
+    margin: 30px auto 20px;
+}
+.row{
+
+}
+.cell{
+    background: #363636;
+    width: 60px;
+    height: 60px;
+    margin: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 30px;
+}
+.cell:hover{
+    background: #ac7fff;
+    transition: background 0.5s;
+}
+.game_result{
+    font-size: 20px;
+    color: #fff;
+}
+.game_result div {
+    padding: 6px 16px;
+    border-radius: 8px;
+}
+.game_result .lose{
+    background: red;
+}
+.game_result .win{
+    background: green;
+}
+.fa-bomb{
+    color: black;
+}
+.fa-heart{
+    color: red;
+}
+select {
+    padding: 2px 8px;
+}
+h2{
+    margin: 20px;
+    color: #3fbac1;
+}
+.setting_cont{
+    font-size: 18px;
+    color: #fff;
+}
+
+
+@media (max-width:400px){
+    .setting_cont{
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+    }
+    .cell{
+        width: 50px;
+        height: 50px;
+    }
+
+}
+</style>
+
+<h2 class="flex">Find love not Mines..!!!</h2>
+
+<div class="flex setting_cont">
+    <span>Select Room : &nbsp;</span>
+    <select id="set_cell">
+        <option value="3" selected>3 X 3</option>
+        <option value="4">4 X 4</option>
+        <option value="5">5 X 5</option>
+        <option value="6">6 X 6</option>
+    </select>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <span>Select Mines : &nbsp;</span>
+    <select id="set_mine">
+        <option value="1" selected>1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <button id="start_game">Start</button>
+</div>
+<div class="error"></div>
+
+<div class="grid_cont"></div>
+
+<div class="game_result flex"></div>
+
+
+<script>
+    var settings = {
+        cell : 3,
+        total_safe_cell : 8,
+        mines : 1,
+        mine_cell : [],
+        game_start : false
+    }
+    var move = {
+        cell_tapped : 0
+    }
+    $(document).ready(function(){
+        $('#start_game').click(()=>{
+            settings.cell = parseInt($('#set_cell').val())
+            settings.mines = parseInt($('#set_mine').val())
+            settings.total_safe_cell = settings.cell * settings.cell - settings.mines
+            create_mine_cells()
+            create_game()
+            move.cell_tapped = 0
+            settings.game_start = true
+        })
+    })
+
+
+    function create_game(){
+        html = ''
+        for(let row = 1; row <= settings.cell; row++) {
+            html += '<div class="row flex">';
+            for(let col = 1; col <= settings.cell; col++) {
+                html += `<div class="cell" row="${row}" col="${col}" onclick="check_move(this)"></div>`;
+            }
+            html += '</div>';
+        }
+        $('.grid_cont').html(html);
+        $('.game_result').html('');
+    }
+    function get_mine_icon(){
+        return '<i class="fas fa-bomb"></i>';
+    }
+    function get_love_icon(){
+        return '<i class="fas fa-heart"></i>';
+    }
+    function create_mine_cells(){
+        let this_row = 0, this_col = 0;
+        settings.mine_cell = []
+        for(var i = 0; i < settings.mines; i++) {
+            this_row = Math.floor((Math.random() * 1000) % settings.cell) + 1;
+            this_col = Math.floor((Math.random() * 1000) % settings.cell) + 1;
+            
+            if( is_mine_exist(this_row, this_col) ) {
+                i--;
+            } else {
+                settings.mine_cell.push([this_row, this_col]);
+            }
+        }
+        console.log(settings)
+    }
+    function is_mine_exist( this_row, this_col ) {
+        let cell_found = false;
+        settings.mine_cell.every((el) => {
+            if(el[0] == this_row && el[1] == this_col){
+                cell_found = true
+                return false
+            }
+            return true
+        })
+        return cell_found;
+    }
+    function check_move( cell ) {
+        if( !settings.game_start ) {
+            return
+        }
+        let this_row = parseInt(cell.getAttribute('row'));
+        let this_col = parseInt(cell.getAttribute('col'));
+        let  = false;
+        if( is_mine_exist(this_row, this_col) ) {
+            cell.innerHTML = get_mine_icon()
+            end_game({
+                is_winner : false
+            })
+            return
+        }
+        move.cell_tapped++;
+        cell.innerHTML = get_love_icon()
+        if( move.cell_tapped == settings.total_safe_cell ) {
+            end_game({
+                is_winner : true
+            })
+        }
+    }
+    function end_game( result ){
+        settings.game_start = false
+        if(result.is_winner) {
+            $('.game_result').html('<div class="win">Winner</div>');
+        } else {
+            $('.game_result').html('<div class="lose">You Lose</div>');
+        }
+        settings = {
+            cell : 3,
+            total_safe_cell : 8,
+            mines : 1,
+            mine_cell : []
+        }
+    }
+
+
+
+</script>
+
+<!-- </body> -->
+</body>
+</html>

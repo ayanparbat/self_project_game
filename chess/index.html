@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#2b777a">
+    <meta name="keywords" content="chess, 2 player chess, multiplayer game, game">
+    <meta description="Play Chess with friends & boost your memory and strategy. Play online for free, no downloads needed!">
+    <title>Play Chess with friends & boost your memory and strategy. Play online for free, no downloads needed!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="./style.css?v=38">
+    <script src="./script.js?v=38" defer></script>
+</head>
+<body>
+
+<div class="heading center margin-t20 fntsz-26"><i>It's better to win a chess battle over a war</i></div>
+<div class="play_again_cont margin-t20 center">
+    <button class="play_again margin-r10" onclick="open_modal('.play_again_confirm_modal')">Play again</button>
+    <button class="play_with_new_player" onclick="open_modal('.play_another_player_confirm_modal')">Play with another player</button>
+</div>
+<div class="game_cont">
+    <div class="game_table_cont rel">
+        <div class="game_table">
+            <div class="dead_piece black"></div>
+            <div class="rel">
+                <div class="board" now-playing="white"></div>
+                <div class="checkmate_popup flex hide-n">
+                    <div class="text blink">CHECKMATE</div>
+                </div>
+            </div>
+            <div class="dead_piece white"></div>
+            <!-- <div class="play_info small flex margin-t20" player="white">
+                <div class="player flex rel white">
+                    <div class="player_color white margin-r10"></div>
+                    <div class="name">Player 1</div>
+                    <div class="winner_crown">
+                        <i class="fas fa-crown"></i>
+                        <span>Winner</span>
+                    </div>
+                </div>
+                <div class="undo flex">
+                    <button class="undo_btn">Undo</button>
+                </div>
+                <div class="player flex rel black">
+                    <div class="name">Player 2</div>
+                    <div class="player_color black margin-l10"></div>
+                    <div class="winner_crown">
+                        <i class="fas fa-crown"></i>
+                        <span>Winner</span>
+                    </div>
+                </div>
+            </div> -->
+            <div class="play_info small margin-t20" player="white">
+                <div class="flx flx_vc flx_hl">
+                    <div class="player flx flx_vc white rel">
+                        <div class="player_color white margin-r10"></div>
+                        <div class="name">Player 1</div>
+                        <div class="winner_crown">
+                            <i class="fas fa-crown"></i>
+                            <span>Winner</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="undo flex">
+                    <button class="undo_btn">Undo</button>
+                </div>
+                <div class="flx flx_vc flx_hr">
+                    <div class="player flx flx_vc black rel">    
+                        <div class="name">Player 2</div>
+                        <div class="player_color black margin-l10"></div>
+                        <div class="winner_crown">
+                            <i class="fas fa-crown"></i>
+                            <span>Winner</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="play_info big margin-t20" player="white">
+    <div class="player flx flx_vc flx_hl rel white">
+        <div class="player_color white margin-r10"></div>
+        <div class="name">Player 1</div>
+        <div class="winner_crown">
+            <i class="fas fa-crown"></i>
+            <span>Winner</span>
+        </div>
+    </div>
+    <div class="undo flex">
+        <button class="undo_btn">Undo</button>
+    </div>
+    <div class="player flx flx_vc flx_hr rel black">
+        <div class="name">Player 2</div>
+        <div class="player_color black margin-l10"></div>
+        <div class="winner_crown">
+            <i class="fas fa-crown"></i>
+            <span>Winner</span>
+        </div>
+    </div>
+</div> -->
+<div class="play_info big margin-t20" player="white">
+    <div class="flx flx_vc flx_hl">
+        <div class="player flx flx_vc white rel">
+            <div class="player_color white margin-r10"></div>
+            <div class="name">Player 1</div>
+            <div class="winner_crown">
+                <i class="fas fa-crown"></i>
+                <span>Winner</span>
+            </div>
+        </div>
+    </div>
+    <div class="undo flex">
+        <button class="undo_btn">Undo</button>
+    </div>
+    <div class="flx flx_vc flx_hr">
+        <div class="player flx flx_vc black rel">    
+            <div class="name">Player 2</div>
+            <div class="player_color black margin-l10"></div>
+            <div class="winner_crown">
+                <i class="fas fa-crown"></i>
+                <span>Winner</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="pawn_replace_modal modal flex hide-n">
+    <input type="hidden" name="pawn_pos" value="">
+    <div class="outer_cont center">
+        <h2>Replace Pawn from below</h2>
+        <div class="replace_piece_cont bgclr-ddd border-radius-8 padding-10 pointer">
+        </div>
+        <button class="replace_pawn_btn bg-darkcyan margin-t20">Replace</button>
+    </div>
+</div>
+<div class="game_start_modal modal flex">
+    <div class="outer_cont center">
+        <form id="player_details_form">
+            <fieldset class="flex padding-30 bgclr-777 border-radius-8">
+                <legend class="fntsz-20">White Player</legend>
+                <div class="player_color white margin-r10"></div>
+                <input type="text" name="white" placeholder="Enter Player Name">
+            </fieldset>
+
+            <fieldset class="flex padding-30 bgclr-777 border-radius-8 margin-t20">
+                <legend class="fntsz-20">Black Player</legend>
+                <div class="player_color black margin-r10"></div>
+                <input type="text" name="black" placeholder="Enter Player Name">
+            </fieldset>
+            <button class="btn-expand margin-t20">Play</button>
+        </form>
+        <hr class="margin-5"><span>OR</span><hr class="margin-5">
+        <button class="btn-expand margin-t10 load_previous_game">Load previous game</button>
+    </div>
+</div>
+<div class="game_result_modal modal flex hide-n">
+    <div class="outer_cont center">
+        <h2>Congrats <span class="clr-orange" id="winner_name">Guest</span>, you win</h2>
+    </div>
+</div>
+<div class="play_again_confirm_modal modal flex hide-n">
+    <div class="outer_cont center">
+        <h2 class="margin-b30">Want to leave current match?</h2>
+        <button class="yes margin-r10">Yes</button>
+        <button onclick="close_modal('.play_again_confirm_modal')">No</button>
+    </div>
+</div>
+<div class="play_another_player_confirm_modal modal flex hide-n">
+    <div class="outer_cont center">
+        <h2 class="margin-b30">Want to leave current match?</h2>
+        <button class="yes margin-r10" onclick="close_modal('.play_another_player_confirm_modal'); open_modal('.game_start_modal')">Yes</button>
+        <button onclick="close_modal('.play_another_player_confirm_modal')">No</button>
+    </div>
+</div>
+
+<!-- </body> -->
+</body>
+</html>

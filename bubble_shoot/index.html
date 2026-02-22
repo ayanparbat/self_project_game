@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Click bubbles to score</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="./style.css?v=82">
+    <script src="./script.js?v=82" defer></script>
+</head>
+<body>
+
+
+<div class="user_input hide-n">
+    <div>
+        <h4 class="margin-b20">How to play :- </h4>
+        <li>Different colored bubble will fall containing lioints and bomb.</li>
+        <li>Click on lioint to score.</li>
+        <li>You will lose the game if you hit a bomb.</li>
+    </div>
+    <form id="user_input_form">
+        <div class="margin-y20">
+            <input type="text" name="player_name" placeholder="Enter your name">
+        </div>
+        <div>
+            <button class="submit">Start Game</button>
+        </div>
+    </form>
+</div>
+<div class="welcome_back margin-t40 padding-t40 center hide-n">
+    <h2 class="center">Hi, <span class="player_name">Guest</span> welcome back</h2>
+    <button class="margin-t40" id="play">Start Playing</button>
+</div>
+
+<div class="score_cont flx flx_vc">
+    <div class="player"></div>
+    <div class="score">
+        <span><i class="fas fa-heart clr-red"></i></span>
+        <span class="life_remain">0</span>
+        <span class="pill">Score</span>
+        <span id="score">0</span>
+        <span class="pill margin-l5">High</span>
+        <span id="highest_score">0</span>
+    </div>
+</div>
+<div class="game_cont rel hide-n"></div>
+<div class="game_result modal flex hide-n">
+    <div class="outer_cont center">
+        <h2>Game Over..!!</h3>
+        <h4 class="margin-y10 clr-dodgerblue">
+            Your Score : <span class="score clr-orange">45</span> | Highest : <span class="high_score clr-orange">78</span>
+        </h4>
+        <button class="play_again bg-darkcyan margin-y20">Play Again</button>
+
+        <h3 class="margin-y15 clr-dodgerblue">Top 10 Players</h3>
+
+        <div class="top_ten"></div>
+    </div>
+</div>
+<!-- </body> -->
+</body>
+</html>

@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#1a191c">
+    <meta name="keywords" content="chess, 2 player chess, multiplayer game, game">
+    <meta description="Play Ludo Snake-Ladder game with your friends and family. Play online for free, no downloads needed!">
+    <title>Play Ludo Snake-Ladder Game with your friends and family</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="./style.css?v=800">
+    <script src="./script.js?v=800" defer></script>
+</head>
+<body>
+
+<h2 class="center">Dont get a Snake bite, find Ladder..!!</h2>
+
+<div class="game_cont">
+    <div class="game_table_cont hide-n">
+        <div class="game_table rel">
+            <div>
+                <div class="ladder lad_1"></div>
+                <div class="ladder lad_2"></div>
+                <div class="ladder lad_3"></div>
+                <div class="ladder lad_4"></div>
+                <div class="ladder lad_5"></div>
+            </div>
+            <div>
+                <div class="snake snake_1"></div>
+                <div class="snake snake_2"></div>
+                <div class="snake snake_3"></div>
+                <div class="snake snake_4"></div>
+                <div class="snake snake_5"></div>
+            </div>
+            <div class="snake_popup_cont hide-n flex">
+                <div class="snake_popup">Opss..!! got a snake bite</div>
+            </div>
+            <div class="ladder_popup_cont hide-n flex">
+                <div class="ladder_popup">WOW..!! you got a ladder</div>
+            </div>
+
+            <div class="grid_cont">
+                <div class="row flex even">
+                    <div class="cell rel" cell-val="100">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>Home</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="99">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>99</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="98">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>98</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="97">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>97</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="96">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>96</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="95">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>95</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="94">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>94</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="93">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>93</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="92">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>92</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="91">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>91</span>
+                    </div>
+                </div>
+                <div class="row flex odd">
+                    <div class="cell rel" cell-val="81">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>81</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="82">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>82</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="83">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>83</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="84">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>84</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="85">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>85</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="86">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>86</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="87">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>87</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="88">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>88</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="89">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>89</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="90">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>90</span>
+                    </div>
+                </div>
+                <div class="row flex even">
+                    <div class="cell rel" cell-val="80">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>80</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="79">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>79</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="78">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>78</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="77">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>77</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="76">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>76</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="75">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>75</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="74">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>74</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="73">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>73</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="72">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>72</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="71">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>71</span>
+                    </div>
+                </div>
+                <div class="row flex odd">
+                    <div class="cell rel" cell-val="61">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>61</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="62">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>62</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="63">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>63</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="64">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>64</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="65">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>65</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="66">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>66</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="67">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>67</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="68">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>68</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="69">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>69</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="70">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>70</span>
+                    </div>
+                </div>
+                <div class="row flex even">
+                    <div class="cell rel" cell-val="60">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>60</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="59">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>59</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="58">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>58</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="57">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>57</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="56">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>56</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="55">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>55</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="54">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>54</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="53">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>53</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="52">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>52</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="51">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>51</span>
+                    </div>
+                </div>
+                <div class="row flex odd">
+                    <div class="cell rel" cell-val="41">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>41</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="42">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>42</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="43">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>43</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="44">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>44</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="45">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>45</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="46">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>46</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="47">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>47</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="48">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>48</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="49">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>49</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="50">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>50</span>
+                    </div>
+                </div>
+                <div class="row flex even">
+                    <div class="cell rel" cell-val="40">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>40</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="39">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>39</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="38">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>38</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="37">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>37</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="36">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>36</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="35">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>35</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="34">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>34</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="33">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>33</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="32">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>32</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="31">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>31</span>
+                    </div>
+                </div>
+                <div class="row flex odd">
+                    <div class="cell rel" cell-val="21">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>21</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="22">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>22</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="23">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>23</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="24">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>24</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="25">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>25</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="26">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>26</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="27">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>27</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="28">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>28</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="29">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>29</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="30">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>30</span>
+                    </div>
+                </div>
+                <div class="row flex even">
+                    <div class="cell rel" cell-val="20">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>20</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="19">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>19</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="18">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>18</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="17">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>17</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="16">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>16</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="15">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>15</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="14">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>14</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="13">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>13</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="12">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>12</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="11">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>11</span>
+                    </div>
+                </div>
+                <div class="row flex odd">
+                    <div class="cell rel" cell-val="1">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>Start</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="2">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>2</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="3">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>3</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="4">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>4</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="5">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>5</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="6">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>6</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="7">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>7</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="8">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>8</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="9">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>9</span>
+                    </div>
+
+                    <div class="cell rel" cell-val="10">
+                        <div class="coin_cont_outer flex">
+                            <div class="coin_cont flex"></div>
+                        </div>
+                        <span>10</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="setting_cont padding-x15">
+        <form class="margin-t30 padding-t30" id="game_setting_form">
+            <div class="margin-b30">
+                <div class="center">Choose Number of Player</div>
+                <div class="margin-t10 center">
+                    <select name="player_count" style="width: 200px;">
+                        <option value="0" selected>Choose Player</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+            </div>
+            <div area="player_details_cont"></div>
+            <button class="submit btn-expand-full margin-t20">Start Game</button>
+        </form>
+        <div class="player_data_outer hide-n">
+            <div class="player_data">
+                <div class="right_sec">
+                    <div class="player_control_area margin-t40">
+                        <div class="player_control margin-b20"></div>
+                    </div>
+                </div>
+                <div class="left_sec">
+                    <div class="rolling_dice_cont flex margin-t40 padding-t40">
+                        <div class="rolling_dice flex">
+                            <div class="dice flex">
+                                <div class="dice_inner">
+                                    <div class="flex"><span></span></div>
+                                    <div class="flex"><span></span></div>
+                                    <div class="flex"><span></span></div>
+                                    <div class="flex"><span></span></div>
+                                    <div class="flex"><span></span></div>
+                                    <div class="flex"><span></span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="roll_value_text center margin-t30">Rolled Value</div>
+                    <div class="rolled_dice_cont flex"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="game_result modal flex hide-n">
+    <div class="outer_cont center">
+        <h2>Winner Winner Chicken Dinner</h3>
+        <h4 class="margin-t30 clr-dodgerblue">Congratulations <span class="winner_name clr-orange">Ayan</span>, You win..!!</h4>
+        <button class="play_again bg-darkcyan margin-t20">Play Again</button>
+    </div>
+</div>
+
+<!-- </body> -->
+</body>
+</html>

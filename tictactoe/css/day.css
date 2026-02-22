@@ -1,0 +1,21 @@
+body{
+    background: #f1f1f1;
+    color: initial;
+}
+::-webkit-scrollbar-thumb:hover { background: #787878; }
+::-webkit-scrollbar-thumb { background: #8d8d8d; }
+button, input[type="button"], input[type="submit"]{
+    color: initial;
+    background-color: #8e2bd57d;
+}
+button:hover, input[type="button"]:hover, input[type="submit"]:hover
+{ background-color: #a861dc7d; }
+.new_game_wrapper button{ color: #fff; }
+.shuffle_wrapper{ background: #272727a1; /* #111111a6 */ }
+.modal button{
+    background-color: #eeeeee21;
+    color: #fff;
+}
+.modal button:hover{ background: #eeeeee61; }
+.game_stat_cont { background: unset; box-shadow: 2px 2px 6px; }
+.modal .game_stat_cont { background: #0005; box-shadow: unset; }

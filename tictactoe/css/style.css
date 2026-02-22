@@ -1,0 +1,252 @@
+/* Tic Tok Toi style */
+
+body{ background: #333449; padding-top:0; padding-bottom: 0; }
+select, option{
+	cursor: pointer;
+	outline: none;
+	border: none;	
+}
+.site-heading{
+	padding: 10px;
+	font-size: 26px;
+}
+.site-heading img{
+	margin-right: 20px;
+    height: 40px;
+    width: 40px;
+}
+.game_stat{
+    font-size: 22px;
+    margin: 25px auto 0;
+    text-align: center;
+}
+.game_stat .heading{
+
+}
+.game_stat i{
+	margin-left: 10px;
+}
+.game_stat .heading{
+
+}
+.winloss{
+	margin-top: 10px;
+}
+.winloss>div{ display: inline-block; }
+.winloss .draw{}
+.winloss .win{ margin-left: 20px; }
+.winloss .loss{ margin-left: 20px; }
+
+
+.game_container_outer{margin-top: 50px; position: relative;}
+.end_game_cont{
+	display: none;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 300px;
+    background: #57cbbe36;
+    z-index: 3;
+}
+.end_game_cont > div{
+    height: 100%;
+}
+.end_game_cont button{ background-color: #57cbbec9; }
+.game_container{
+	position: relative;
+	display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 300px;
+    height: 300px;
+}
+.game_container .cell{
+	cursor: pointer;
+	border: 1px solid;
+    width: 100px;
+    height: 100px;
+    font-size: 50px;
+}
+.game_container .cell:nth-child(1){ border-top:none; border-left:none; }
+.game_container .cell:nth-child(2){ border-top:none;  }
+.game_container .cell:nth-child(3){ border-top:none; border-right:none; }
+.game_container .cell:nth-child(4){ border-left:none; }
+.game_container .cell:nth-child(5){  }
+.game_container .cell:nth-child(6){ border-right:none; }
+.game_container .cell:nth-child(7){ border-bottom:none; border-left:none; }
+.game_container .cell:nth-child(8){ border-bottom:none; }
+.game_container .cell:nth-child(9){ border-bottom:none; border-right:none; }
+.game_container .slicer{
+	display: none;
+    position: absolute;
+    top: 10px;
+    left: 48px;
+    height: 280px;
+    width: 3px;
+    border-radius: 2px;
+	background: #2dffef;
+    box-shadow: 0px 0px 8px 2px #2dffef;
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(0, 0, 1, -0.18);
+}
+.slicer.diag_rtl{
+	transform: rotate(45deg);
+	top: -30px;
+    left: 150px;
+    height: 360px;
+    animation-name: slicer_slice_drtl;
+}
+.slicer.diag_ltr{
+	transform: rotate(-45deg);
+	top: -29px;
+    left: 148px;
+    height: 360px;
+    animation-name: slicer_slice_dltr;
+}
+.slicer.vir_1{ animation-name: slicer_slice_vone; }
+.slicer.vir_2{ animation-name: slicer_slice_vtwo; left: 148px; }
+.slicer.vir_3{ animation-name: slicer_slice_vthree; left: 249px; }
+.slicer.hor_1{
+	transform: rotate(90deg);
+	top: -89px;
+    left: 146px;
+    animation-name: slicer_slice_hone;
+}
+.slicer.hor_2{
+	transform: rotate(90deg);
+	top: 11px;
+    left: 146px;
+    animation-name: slicer_slice_htwo;
+}
+.slicer.hor_3{
+	transform: rotate(90deg);
+	top: 112px;
+    left: 146px;
+    animation-name: slicer_slice_hthree;
+}
+.setting_sec{
+	text-align: center;
+	padding: 5px;
+	margin-top: 25px;
+}
+.setting_sec .setting_option > span{
+	padding: 5px;
+}
+.setting_sec .setting_option{
+	text-align: center;
+	margin: 5px;
+	display: inline-block;
+	font-size: 17px;
+}
+.setting_sec select{
+	padding: 2px 5px;
+	border-radius: 5px;
+}
+
+@keyframes slicer_slice_vone{ 0% {height: 0px;} 100% {height: 280px; } }
+@keyframes slicer_slice_vtwo{ 0% {height: 0px;} 100% {height: 280px;} }
+@keyframes slicer_slice_vthree{ 0% {height: 0px;} 100% {height: 280px;} }
+@keyframes slicer_slice_hone{ 0% {height: 0px; top:51px; left: 6px;} 100% {height: 280px; top:-89px; left: 146px;} }
+@keyframes slicer_slice_htwo{ 0% {height: 0px; top:151px; left: 6px;} 100% {height: 280px; top:11px; left: 146px;} }
+@keyframes slicer_slice_hthree{ 0% {height: 0px; top:252px; left: 6px;} 100% {height: 280px; top:112px; left: 146px;} }
+@keyframes slicer_slice_drtl{ 0% {height:6px; top:22px; left:275px;} 100% {height:360px; top:-30px; left:150px;} }
+@keyframes slicer_slice_dltr{ 0% {height:5px; top:23px; left:23px;} 100% {height: 360px; top:-29px; left:150px;} }
+
+
+    
+
+
+/* Tic Tok Toi style */
+
+@media (max-width:1100px){
+
+}
+@media (max-width:1000px){
+    
+}
+@media (max-width:900px){
+
+}
+@media (max-width:850px){
+    body{padding: 10px 15px;}
+
+}
+@media (max-width:800px){
+
+}
+@media (max-width:760px){
+
+}
+@media (max-width:700px){
+
+}
+@media (max-width:600px){
+    body{padding: 10px;}
+}
+@media (max-width:550px){
+
+}
+@media (max-width:500px){
+    .game_stat .winloss{ font-size: 20px; }
+	.game_container{height: 210px; width: 210px;}
+	.end_game_cont{width: 210px;}
+	.game_container .cell{ height: 70px; width: 70px; font-size: 40px; }
+    .setting_sec .setting_option{display: block; font-size: 18px; margin-bottom: 10px;}
+    .game_container .slicer{
+		left: 33px;
+		height: 192px;
+	}
+	.slicer.diag_rtl{
+		top: -22px;
+	    left: 104px;
+	    height: 255px;
+	}
+	.slicer.diag_ltr{
+		top: -21px;
+	    left: 104px;
+	    height: 255px;
+	}
+	.slicer.vir_1{
+		
+	}
+	.slicer.vir_2{
+		left: 103px;
+	}
+	.slicer.vir_3{
+		left: 174px;
+	}
+	.slicer.hor_1{
+		top: -60px;
+    	left: 104px;
+	}
+	.slicer.hor_2{
+		top: 10px;
+    	left: 104px;
+	}
+	.slicer.hor_3{
+		top: 81px;
+    	left: 104px;
+	}
+
+	@keyframes slicer_slice_vone{ 0% {height: 0px;} 100% {height: 192px;} }
+	@keyframes slicer_slice_vtwo{ 0% {height: 0px;} 100% {height: 192px;} }
+	@keyframes slicer_slice_vthree{ 0% {height: 0px;} 100% {height: 192px;} }
+	@keyframes slicer_slice_hone{ 0% {height: 5px; top:34px; left:10px;} 100% {height: 192px; top:-60px; left:104px;} }
+	@keyframes slicer_slice_htwo{ 0% {height: 5px; top:104px; left:10px;} 100% {height: 192px; top:10px; left:104px;} }
+	@keyframes slicer_slice_hthree{ 0% {height: 5px; top:175px; left:10px;} 100% {height: 192px; top:81px; left:104px;} }
+	@keyframes slicer_slice_drtl{ 0% {height: 5px; top:15px; left:192px;} 100% {height: 255px; top:-22px; left:104px;} }
+	@keyframes slicer_slice_dltr{ 0% {height: 5px; top:16px; left:16px;} 100% {height: 255px; top:-21px; left:104px;} }
+
+}
+@media (max-width:450px){
+
+}
+@media (max-width:400px){
+    body{padding: 5px;}
+    .site-heading img{ margin-right: 10px; }
+}
+@media (max-width:350px){
+
+}
+@media (max-width:320px){
+
+}

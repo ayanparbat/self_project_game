@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fishing</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="theme-color" content="#1E2126">
+	<meta name="keywords" content="go fish, play fishing, card game">
+	<meta description="Fishing is a classic card game of luck and strategy. Play for free online, no downloads needed!">
+	<link rel="shortcut icon" href="../common/img/favicon-png.png" type="image/png">
+	<script src="../blackjack/js/jquery-3.4.1-min.js"></script>
+	<script defer src="script.js"></script>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="../../css/ionicons/css/ionicons.css">
+</head>
+<body>
+
+<div id="popup-alert-container" class="popup-alert-container"></div>
+
+<!-- <div class="setting_icon rotate_180 pointer" open-modal="setting_modal">
+	<i class="icon ion-android-settings"></i>
+</div> -->
+<div class="game_heading flex">
+	<div class="center">
+		Play Fish like a Whale (0_-)
+		<!-- <img src="img/crown.png"> -->
+	</div>
+</div>
+<div class="game_table">
+	<div class="table" style="display: none;">
+		<div class="other_card_sec flex center">
+			<div class="deck_cards flex">
+				<div class="decks flex pointer">Click to fetch card</div>
+				<div class="fetched pointer" style="display: none;"></div>
+				<div class="action" style="display: none;">
+					<!-- <button id="keep_deck_card">Keep</button><br/><br/> -->
+					<button id="throw_deck_card">Throw</button>
+				</div>
+			</div>	
+			<div class="throw_cards flex">
+				<div id="thrown_card" class="thrown_card"></div>
+				<div class="action">
+					<button id="take_thrown_card">Take</button>
+				</div>
+			</div>
+		</div>
+		<div class="oppo_3"></div>
+		<div class="player_sec">
+			<div class="name center"></div>
+			<div id="player_card_section" active-player="" class="player_card_section"></div>
+		</div>
+	</div>
+
+	<div class="new_game_wrapper flex">
+		<div class="center">
+			<div class="set_player_name">
+				<div class="tal_right">Player One</div>
+				<div>:</div>
+				<div><input type="text" player="one" value="a"></div>
+
+				<div class="tal_right">Player Two</div>
+				<div>:</div>
+				<div><input type="text" player="two" value="b"></div>
+
+				<div class="tal_right">Player Three</div>
+				<div>:</div>
+				<div><input type="text" player="three" value="c"></div>
+
+				<div class="tal_right">Player Four</div>
+				<div>:</div>
+				<div><input type="text" player="four" value="d"></div>
+			</div>
+			<div><button id="new_game_btn">Start New Game</button></div>
+		</div>
+	</div>
+	<div class="shuffle_wrapper hide"><div class="flex"></div></div>
+</div>
+<!-- <div class="game_stat_cont small_stat">
+	<div class="heading center">Game Statistics</div>
+	<div class="game_stat">
+		<div class="heading">
+			<div>Round No</div>
+			<div>Result</div>
+		</div>
+		<div class="round_sec">
+		</div>
+		<div class="note clr_acua fntsz_13">** To see more details click on the round number</div>
+	</div>
+</div> -->
+<div class="modal" id="setting_modal">
+	<div class="modal_content">
+		<div class="modal_header">
+			<div class="right"><i close-modal="setting_modal" class="close icon ion-close-round"></i></div>
+			<div>Useful Tools</div>
+		</div>
+		<div class="modal_body">
+			<div class="tool_tab clr_acua">
+				<i class="icon ion-ios-people"></i>
+				<a href="../blackjack_multiplayer/">Play with friends</a>
+			</div>
+			<div class="tool_tab">
+				<div class="clr_acua">
+					<i class="icon ion-android-settings"></i> Settings
+				</div>
+				<div class="setting_options_cont">
+					<div class="setting_options">
+						<i id="volume_icon" class="icon ion-android-volume-off"></i>
+						<input type="checkbox" id="setting_sound">
+						<span id="sound_setting_word">Sound off</span>
+					</div>
+					<div class="setting_options">
+						<i class="icon ion-social-buffer"></i> Container made of
+						<select id="setting_deck">
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4" selected>4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+						</select>
+						sets of deck
+					</div>
+				</div>
+				<div class="tal_right">
+					<button id="save_setting">Save</button>
+					<button id="setting_saved" class="hide">Saved</button>
+				</div>
+			</div>
+			<div class="tool_tab">
+				<div class="game_rules_heading clr_acua">
+					<i class="icon ion-ios-help-outline"></i>
+					<a id="playing_rules" href="javascript:void(0)">How to Play</a>
+				</div>
+				<div class="game_rules hide" area-hidden="true">
+					<li>The goal of blackjack is to beat the dealer's hand without going over 21</li>
+					<li>Face cards (K, Q, J) and 10 are worth 10 points. Aces (A) are worth 1 or 11, whichever makes a better hand</li>
+					<li>Game starts with two cards, one of the dealer's cards is hidden until the end</li>
+					<li>To 'Hit' is to ask for another card. To 'Stand' is to end your turn</li>
+					<li>If you go over 21 you bust, and the dealer wins regardless of the dealer's hand</li>
+					<li>If you are dealt 21 from the start (Ace & 10 points card), you got a blackjack</li>
+					<li>Dealer will hit until his/her cards total 17 or higher</li>
+					<li>Deck is a standard 52 playing cards (excluding Joker)</li>
+					<li>Final serving card set is made by the shuffled multiple decks (default = 4decks). ei, when you start the game the serving container holds 52x4=208 shuffled cards which can be played upto 65% of the total cards untill auto shuffle</li>
+					<li>You can shuffle and the reset the serving container by hitting shuffle button</li>
+				</div>
+			</div>
+			<div class="tool_tab view_mode clr_acua">
+				<i class="icon ion-ios-sunny"></i>
+				<a id="change_mode" href="javascript:void(0)">Switch to day mode</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- <div class="modal" id="full_game_stat">
+	<input type="hidden" id="hidden_game_stat">
+	<div class="modal_content">
+		<div class="modal_header">
+			<div class="right"><i close-modal="full_game_stat" class="close icon ion-close-round"></i></div>
+			<div>Full Game History</div>
+		</div>
+		<div class="modal_body">
+			<div class="win_loss">
+				<div class="total_round clr_acua">
+					<div class="heading">Played</div>
+					<div class="data">0</div>
+				</div>
+				<div class="total_draw clr_pretty_blue">
+					<div class="heading">Draw</div>
+					<div class="data">0</div>
+				</div>
+				<div class="total_win clr_grn">
+					<div class="heading">Win</div>
+					<div class="data">0</div>
+				</div>
+				<div class="total_loss clr_red">
+					<div class="heading">Loss</div>
+					<div class="data">0</div>
+				</div>
+			</div>
+			<div class="heading_area center">
+				<div class="prev_game left pointer"><i class="icon ion-ios-arrow-back"></i></div>
+				<div class="next_game right pointer"><i class="icon ion-ios-arrow-forward"></i></div>
+				<div class="round_no_big clr_acua">Round 0</div>
+			</div>
+			<div class="game_stat_cont">
+				<div class="game_stat">
+					<div class="heading">
+						<div>Round No</div>
+						<div>Result</div>
+					</div>
+					<div class="round_sec"></div>
+				</div>
+			</div>
+			<div class="game_table">
+				<div class="dealer_area">
+					<div class="point center">Dealer's Point : <span id="history_dealers_point"></span></div>
+					<div id="history_dealer_card_section" class="dealer_card_section">
+					</div>
+				</div>
+				<div class="player_area">
+					<div class="point center">Your Point : <span id="history_players_point"></span></div>
+					<div id="history_player_card_section" class="player_card_section">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div> -->
+
+
+<div class="hide">
+	<audio id="game_win_sound" class="hide" src="../common/audio/game_win.mp3"></audio>
+	<audio id="game_loss_sound" class="hide" src="../common/audio/game_loss.mp3"></audio>
+	<audio id="card_shuffle_sound" class="hide" src="../common/audio/card_shuffle.mp3"></audio>
+	<audio id="card_serve_sound" class="hide" src="../common/audio/card_serve.mp3"></audio>
+</div>
+
+<!-- </body> -->
+</body>
+</html>

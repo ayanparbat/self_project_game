@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>  
+    <title>AP - Games</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="theme-color" content="#008dd0">
+    <link rel="shortcut icon" href="./assets/img/favicon-games.png" type="image/png">
+    <meta name="keywords" content="online games, games, free online games">
+    <meta name="description" content="Play various online games for free, no downloads needed!">
+    <script src="./assets/js/jquery-3.4.1-min.js"></script>
+    <script src="./assets/js/main_js.js"></script>
+    <link rel="stylesheet" href="./assets/css/general_style.css"> 
+</head>
+<body>
+
+<style>
+body{ 
+    padding: 20px;
+    padding-bottom: 60px !important;
+    background: linear-gradient(135deg, #5f7f86, #3e5b63);
+    font-family: 'Segoe UI', sans-serif;
+    font-style: normal;
+    color: #fff;
+}
+
+.heading_top {
+    font-size: 34px;
+    margin-bottom: 40px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.link_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.link_container a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.game-card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(8px);
+    padding: 20px;
+    border-radius: 14px;
+    height: 100%;
+    transition: 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.game-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255,255,255,0.15);
+}
+
+.heading {
+    margin: 0 0 10px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.type {
+    display: inline-block;
+    font-size: 12px;
+    background: #ff4f81;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+}
+
+.description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #f1f1f1;
+}
+</style>
+
+<div class="heading_top margin_20 fntsz_24 center">Game List</div>
+
+<div class="link_container">
+
+    <a href="./blackjack/">
+        <div class="game-card">
+            <p class="heading">Blackjack Single Player</p>
+            <p class="type">Card Game</p>
+            <p class="description">
+                Score 21 or less. Win by beating the bot or forcing it to exceed 21.
+            </p>
+        </div>
+    </a>
+
+    <a href="./blackjack_multiplayer/">
+        <div class="game-card">
+            <p class="heading">Blackjack Multiplayer</p>
+            <p class="type">Card Game</p>
+            <p class="description">
+                Compete with other players. Stay under 21 and score higher than opponents.
+            </p>
+        </div>
+    </a>
+
+    <a href="./tictactoe/">
+        <div class="game-card">
+            <p class="heading">Tic-Tac-Toe</p>
+            <p class="type">Board Game</p>
+            <p class="description">
+                Classic 0 & X game. Bring back school memories and challenge a friend.
+            </p>
+        </div>
+    </a>
+
+    <a href="./card_match/">
+        <div class="game-card">
+            <p class="heading">Find Pairs</p>
+            <p class="type">Memory Game</p>
+            <p class="description">
+                Test your memory by matching card pairs as fast as possible.
+            </p>
+        </div>
+    </a>
+
+    <a href="./ludo_snake/">
+        <div class="game-card">
+            <p class="heading">Ludo & Snake Ladder</p>
+            <p class="type">Board Game</p>
+            <p class="description">
+                Roll, climb ladders, avoid snakes and reach home to win.
+            </p>
+        </div>
+    </a>
+
+    <a href="./mine_hunt/">
+        <div class="game-card">
+            <p class="heading">Mine Hunt</p>
+            <p class="type">Luck Game</p>
+            <p class="description">
+                Find all love boxes while avoiding hidden mines.
+            </p>
+        </div>
+    </a>
+
+    <a href="./chess/">
+        <div class="game-card">
+            <p class="heading">Chess</p>
+            <p class="type">Strategy Game</p>
+            <p class="description">
+                Play 2-player chess and sharpen your strategy and memory.
+            </p>
+        </div>
+    </a>
+
+    <a href="./bubble_shoot/">
+        <div class="game-card">
+            <p class="heading">Bubble Shoot</p>
+            <p class="type">Focus Game</p>
+            <p class="description">
+                Tap bubbles to score. Avoid bombs and survive increasing difficulty.
+            </p>
+        </div>
+    </a>
+
+</div>
+
+
+<!-- </body> -->
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="theme-color" content="#1e2126">
+    <title>Remember the match</title>
+    <script src="../../js/jquery-3.4.1-min.js"></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- game section -->
+
+<div class="level_heading center"></div>
+<div class="level_button center">
+    <button btn-reload-cards>Reload Cards</button>
+    <button btn-reset-level>Reset Level</button>
+    <button btn-open-level-modal open-modal="previous_level_modal">Previous Levels</button>
+</div>
+<div class="game_container"></div>
+
+<!-- game section -->
+
+<!-- modal -->
+
+<div class="modal" style="display: block;" id="startup_modal">
+    <div class="flex modal-container">
+        <div class="center">
+            <h2>Current level : <span start-lvl-msg></span></h2> <br><br><br>
+            <button>Play</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal center" id="previous_level_modal">
+    <div><button class="right margin_10" close-modal="previous_level_modal">Close</button></div>
+    <div class="heading">You have unlocked these levels</div>
+    <div class="previous_levels"></div>
+</div>
+
+<div class="modal" id="levelup_modal">
+    <div class="flex modal-container">
+        <div class="center">
+            <h2>Level up..!! Congratulations..!!</h2> <br><br><br>
+            <button>Play next level</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- modal -->
+
+<!-- </body> -->
+</body>
+</html>

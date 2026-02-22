@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tic-Tac-Toe</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="theme-color" content="#333449">
+	<meta name="keywords" content="tic tac toe game, online tic tac toe, tic-tac-toe">
+	<meta name="description" content="School life is back..!! Tic-Tac-Toe is a classic game of X's and O's. Play for free online, no downloads needed!">
+	<link rel="shortcut icon" id="favicon" href="img/favicon-tilt.png" type="image/png">
+	<script src="../../js/jquery-3.4.1-min.js"></script>
+	<script defer src="../../js/main_js.js"></script>
+	<script defer src="js/script.js"></script>
+	<link rel="stylesheet" href="../../css/general_style.css">
+	<link rel="stylesheet" href="../../css/ionicons/css/ionicons.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="site-heading flex">
+	<img src="img/favicon-tilt.png"> Tic-Tac-Toe
+</div>
+<div class="game_stat">
+	<div class="heading center  clr_acua">
+		Game Result <i class="icon ion-android-sync pointer rotate_180"></i>
+	</div>
+	<div class="winloss">
+		<div class="draw clr_pretty_blue">Draw : 0</div>
+		<div class="win clr_grn">Win : 0</div>
+		<div class="loss clr_red">Loss : 0</div>
+	</div>
+</div>
+<div class="game_container_outer flex">
+	<div class="end_game_cont">
+		<div class="flex">
+			<button>Play Again</button>
+		</div>
+	</div>
+	<div class="game_container">
+		<div class="cell flex"></div>
+		<div class="cell flex"></div>
+		<div class="cell flex"></div>
+		<div class="cell flex"></div>
+		<div class="cell flex"></div>
+		<div class="cell flex"></div>
+		<div class="cell flex"></div>
+		<div class="cell flex"></div>
+		<div class="cell flex"></div>
+		<div id="slicer" class="slicer"></div>
+	</div>
+</div>
+
+<div class="setting_sec">
+	<div class="setting_option">
+		<span>Game Mode</span>
+		<select id="game_mode">
+			<option value="1">Easy</option>
+			<option value="2">Medium</option>
+			<option value="3">Beat the BOT</option>
+		</select>
+	</div>
+	<div class="setting_option">
+		<span>Dont ask for next round</span> <input type="checkbox" id="random">
+	</div>
+</div>
+
+<!-- </body> -->
+</body>
+</html>
+
+
