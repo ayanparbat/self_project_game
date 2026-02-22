@@ -21,8 +21,6 @@ $(document).ready(function(){
 
     $('body').append('<div id="popup-alert-container" class="popup-alert-container"></div>');
 
-    $.post('./process.php?act=init', (data) => {});
-
     $('.replace_pawn_btn').click(()=>{
         let cell_pos = $('.pawn_replace_modal [name=pawn_pos]').val();
         if( !cell_pos ){
@@ -67,7 +65,6 @@ $(document).ready(function(){
         })
         $('#player_details_form').trigger('reset');
         $('.game_start_modal').addClass('hide-n');
-        $.post('./process.php?act=init', {username : `${white}-${black}`}, (data) => {});
     });
     $('.play_again_confirm_modal .yes').click(()=>{
         $('.play_again_confirm_modal').addClass('hide-n');
