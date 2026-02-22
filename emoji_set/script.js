@@ -130,6 +130,7 @@ window.addEventListener('load', () => {
 /* ======== functions ======== */
 
 function parseEmoji( emoji ) {
+    if(!twemoji) return;
     let img = ''
     twemoji.parse(emoji, {
         callback: (icon, options) => {
@@ -142,7 +143,7 @@ function parseEmoji( emoji ) {
             )
         },
         folder: 'svg',
-    })
+    })   
     return img;
 }
 function popup_alert( message, type = '' ) {

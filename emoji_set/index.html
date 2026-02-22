@@ -1,73 +1,94 @@
-<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Match Emo 😎</title>
+    <title>Emoji Swap Arena</title>
     <link rel="icon" href="data:image/png;base64,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" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
-    <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
     <script src="./script.js" defer></script>
 </head>
 <body>
+    <div class="bg-orb orb-a"></div>
+    <div class="bg-orb orb-b"></div>
 
+    <main class="app-shell">
+        <header class="hero">
+            <h1 class="heading">
+            <span class="eyebrow">Emoji Swap Game</span>
+                Match triples, clear the board, beat the clock.
+            </h1>
+            <div class="flex menu_bar">
+                <button id="restart_game_btn">Restart Run</button>
+            </div>
+        </header>
 
-<div class="heading flex">Match emoji to create a set and win the game</div>
-<div class="flex menu_bar">
-    <button id="restart_game_btn">Restart</button>
-</div>
-<div class="gm_cont">
-    <div class="table" id="game_table"></div>
-    <div class="store">
-        <div class="em_store">
-            <div class="cell flex" id="store_emo"></div>
-        </div>
-        <div class="level">
-            <span>Level :&nbsp;</span> <span id="level">1</span>
-        </div>
-        <div class="item_remains">
-            Remaining :&nbsp;<span id="item_remains">15</span> / <span id="total_items">24</span>
-        </div>
-        <div class="time">
-            Time &nbsp;<span id="timer_min">0</span>:<span id="timer_sec">00</span>
-        </div>
-        <div class="score">
-            Score :&nbsp;<span id="score">450</span>
-        </div>
-    </div>
-    <div class="end_msg_cont flex" id="level_up_cont">
-        <div class="end_msg">
-            <p class="flex" style="font-size:40px;">🏅</p>
-            <p>Level Up..!!</p>
-            <p><button id="play_next_level_btn">Play Next Level</button></p>
-            <p><button id="play_again_btn">Start Again</button></p>
-        </div>
-    </div>
-    <div class="end_msg_cont flex" id="game_start_anim_cont">
-        <div class="end_msg">
-            <p>Starting Game in <span id="next_level_count">3</span>..</p>
-        </div>
-    </div>
-    <div class="end_msg_cont flex" id="game_over_cont">
-        <div class="end_msg">
-            <p>Game Over..!!</p>
-            <p><button id="restart_level_btn">Start Again</button></p>
-        </div>
-    </div>
+        <section class="gm_cont">
+            <div class="table-wrap">
+                <div class="table" id="game_table"></div>
+            </div>
 
-    <div class="end_msg_cont flex" style="display:flex; background:#000;" id="start_game_cont">
-        <div class="end_msg">
-            <p class="flex">Create a set by matching 3 same stickers</p>
-            <p><button id="start_game_btn">Start Game</button></p>
-        </div>
-    </div>
-</div>
+            <aside class="store">
+                <div class="card em_store">
+                    <p class="label">Holding Slot</p>
+                    <div class="cell flex" id="store_emo"></div>
+                </div>
 
+                <div class="card level">
+                    <p class="label">Level</p>
+                    <p class="value"><span id="level">1</span></p>
+                </div>
 
+                <div class="card item_remains">
+                    <p class="label">Remaining</p>
+                    <p class="value"><span id="item_remains">15</span> / <span id="total_items">24</span></p>
+                </div>
 
+                <div class="card time">
+                    <p class="label">Time</p>
+                    <p class="value"><span id="timer_min">0</span>:<span id="timer_sec">00</span></p>
+                </div>
 
+                <div class="card score">
+                    <p class="label">Score</p>
+                    <p class="value"><span id="score">450</span></p>
+                </div>
+            </aside>
 
-<!--</body>-->
+            <div class="end_msg_cont flex" id="level_up_cont">
+                <div class="end_msg">
+                    <p class="icon">&#x1F3C6;</p>
+                    <p>Level Up!</p>
+                    <p><button id="play_next_level_btn">Play Next Level</button></p>
+                    <p><button id="play_again_btn">Replay This Level</button></p>
+                </div>
+            </div>
 
+            <div class="end_msg_cont flex" id="game_start_anim_cont">
+                <div class="end_msg">
+                    <p>Starting in <span id="next_level_count">3</span>...</p>
+                </div>
+            </div>
+
+            <div class="end_msg_cont flex" id="game_over_cont">
+                <div class="end_msg">
+                    <p>Game Over</p>
+                    <p><button id="restart_level_btn">Start Again</button></p>
+                </div>
+            </div>
+
+            <div class="end_msg_cont flex" id="start_game_cont" style="display:flex;">
+                <div class="end_msg">
+                    <p>Create a set by matching 3 identical emojis.</p>
+                    <p><button id="start_game_btn">Start Game</button></p>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
+
