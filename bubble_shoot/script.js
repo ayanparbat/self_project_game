@@ -17,7 +17,6 @@ $(document).ready(function(){
 
     $('body').append('<div id="popup-alert-container" class="popup-alert-container"></div>');
 
-    $.post('./process.php?act=init', {username : user.username}, (data) => {});
     if( user.username ) {
         $('.score_cont .player').text(user.username)
         $('.welcome_back .player_name').text(user.username)
@@ -31,14 +30,9 @@ $(document).ready(function(){
     $('#user_input_form .submit').click((e)=>{
         e.preventDefault();
         let username = $('#user_input_form [name=player_name]').val();
-        $.post('./process.php?act=register_user', { username }, (data)=>{
-            if( data.status == 200 ) {
-                update_user_local(data.response, 0);
-                start_game();
-                $('#user_input_form [name=player_name]').val('');
-            }
-            else api_error_msg(data)
-        })
+        update_user_local(username, 0);
+        start_game();
+        $('#user_input_form [name=player_name]').val('');
     })
     $('#play, .play_again').click(()=>{
         start_game();
@@ -88,7 +82,7 @@ function get_user_data(){
     ud = ud.split('.');
     return {username : ud[0], high : ud[1]}
 }
-function update_user_local( username = '', point = 0 ){
+    function update_user_local( username = '', point = 0 ){
     user.high = point > user.high ? point : user.high;
     user.username = username;
     localStorage.setItem('bs_ud', user.username + '.' + user.high);
@@ -230,15 +224,6 @@ function end_game(){
     $('.game_result .score').text(settings.score);
     $('.game_result .high_score').text(user.high);
     $('#highest_score').text(user.high);
-    $.post('./process.php?act=update_top_ten', {
-        username : user.username,
-        point : settings.score
-    }, (data) => {
-        if( data.response ) {
-            $('.top_ten').html(get_top_ten_user_html(data.response));
-        }
-    })
-    $('.game_result').removeClass('hide-n');
 }
 
 function get_top_ten_user_html(users = []){
